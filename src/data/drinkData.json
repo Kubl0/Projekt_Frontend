@@ -1,0 +1,30 @@
+[
+    {
+       "name":"Vodka",
+       "description":"Vodka is a distilled beverage composed primarily of water and ethanol, sometimes with traces of impurities and flavorings.",
+       "price":"10",
+       "alcohol":"40%",
+       "volume":"0.5l"
+    },
+    {
+       "name":"Whisky",
+       "description":"Whisky or whiskey is a type of distilled alcoholic beverage made from fermented grain mash.",
+       "price":"15",
+       "alcohol":"40%",
+       "volume":"0.5l"
+    },
+    {
+       "name":"Beer",
+       "description":"Beer is one of the oldest and most widely consumed alcoholic drinks in the world, and the third most popular drink overall after water and tea.",
+       "price":"5",
+       "alcohol":"5%",
+       "volume":"0.5l"
+    },
+    {
+       "name":"Wine",
+       "description":"Wine is an alcoholic beverage made from fermented grapes.",
+       "price":"20",
+       "alcohol":"12%",
+       "volume":"0.5l"
+    }
+ ]
