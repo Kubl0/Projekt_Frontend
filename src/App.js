@@ -8,7 +8,7 @@ import "./style.css";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/nav/navBar";
 import Err404 from "./components/nav/err404";
-
+import CoctailTable from "./components/statistics/coctailTable";
 export const loggedContext = createContext();
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -26,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DrinkList />} />
         <Route path=":id" element={<DrinkDetails />} />
+        <Route path="statistics" element={<CoctailTable />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
       <CommentForm user={user.username} />

@@ -3,6 +3,6 @@ import drinkReducer from "./drinkReducer";
 import commentReducer from "./commentReducer";
 
 export default combineReducers({
-    drinks: drinkReducer,
-    comments: commentReducer
-})
+  drinks: drinkReducer,
+  comments: commentReducer,
+});
