@@ -1,30 +1,38 @@
 [
-    {
-       "name":"Vodka",
-       "description":"Vodka is a distilled beverage composed primarily of water and ethanol, sometimes with traces of impurities and flavorings.",
-       "price":"10",
-       "alcohol":"40%",
-       "volume":"0.5l"
-    },
-    {
-       "name":"Whisky",
-       "description":"Whisky or whiskey is a type of distilled alcoholic beverage made from fermented grain mash.",
-       "price":"15",
-       "alcohol":"40%",
-       "volume":"0.5l"
-    },
-    {
-       "name":"Beer",
-       "description":"Beer is one of the oldest and most widely consumed alcoholic drinks in the world, and the third most popular drink overall after water and tea.",
-       "price":"5",
-       "alcohol":"5%",
-       "volume":"0.5l"
-    },
-    {
-       "name":"Wine",
-       "description":"Wine is an alcoholic beverage made from fermented grapes.",
-       "price":"20",
-       "alcohol":"12%",
-       "volume":"0.5l"
-    }
+   {"id":0,
+      "name": "Sex on the beach",
+   "type":"alcoholic",
+   "type_of_glass": "Hurricane",
+   "ingredients": "wódka - 80 ml (można część wódki zastąpić malibu), likier brzoskwiniowy - 40 ml, sok pomarańczowy - 80 ml, sok żurawinowy - 80 ml, kostki lodu",
+   "recipe":"Wypełnij szklankę typu Hurricane kostkami lodu w okolicach połowy. Następnie wlej sok żurawinowy. Do shakera wlej sok pomarańczowy oraz alkohole: wódkę i likier brzoskwiniowy. Całość z shakera przelej delikatnie po kostkach lodu (lub łyżce również), uważaj aby nie pomieszać miksu z shakera z sokiem żurawinowym, jeśli chcesz utworzyć warstwy. Można również wszystko od razu wymieszać, wedle uznania. Przed wypiciem drink warstwowy należy pomieszać. Na zdrowie!",
+   "image": "https://naszedrinki.pl/wp-content/uploads/2014/06/Sex-On-The-Beach.jpg"
+},
+{"id":1,"name": "White russian",
+"type":"alcoholic",
+"type_of_glass": "Old Fashioned",
+"ingredients": "wódka - 50 ml, likier kawowy Kahlua (bądź zamiennik) - 20 ml, mleczko skondensowane lub śmietanka - 50 ml, kostki lodu",
+"recipe":"Wódkę i likier kawowy z kostkami lodu umieścić w szklance Old Fashioned.Delikatnie po ściance lub łyżce, nalewamy mleczko lub śmietankę, aby utworzyć 2 warstwy.Przed wypiciem należy dobrze wymieszać.",
+"image": "https://www.liquor.com/thmb/wzgqg2FC1Sqbwo_PAJofVVZIMRk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__liquor__2017__12__20073201__white-russian-720x720-article-cbe4b9a832c64f8da0bb09407caefa7f.jpg"
+},
+{"id":2,"name": "Mojito",
+"type":"non-alcoholic",
+"type_of_glass": "Highball",
+"ingredients": "liście mięty - 6 sztuk, cukier trzcinowy - 2 łyżki, sok z limonki - 1/2 sztuki, woda gazowana - 150 ml, kostki lodu",
+"recipe":"W dzbanku lub kieliszku typu Highball rozgnieć liście mięty z cukrem trzcinowym. Dodaj sok z limonki i wodę gazowaną, a następnie dodaj kostki lodu. Wymieszaj dokładnie i przelej do przygotowanego kieliszka. Posyp miętą i podawaj z słomką.",
+"image": "https://cdn.aniagotuje.com/pictures/articles/2019/08/991305-v-1500x1500.jpg"
+},
+{"id":3,"name": "Daiquiri",
+"type":"alcoholic",
+"type_of_glass": "Cocktail",
+"ingredients": "rum biały - 60 ml, sok z limonki - 30 ml, cukier trzcinowy - 1 łyżka, kostki lodu",
+"recipe":"Wszystkie składniki wymieszać w shakerze z kostkami lodu. Przecedzić do przygotowanego kieliszka typu cocktail. Posypać cukrem pudrem i podawać z limonką.",
+"image": "https://przepisypawlapl.b-cdn.net/wp-content/uploads/2019/11/daiquiri-scaled.jpg"
+},
+{"id":4,"name": "Mai Tai",
+"type":"alcoholic",
+"type_of_glass": "Old Fashioned",
+"ingredients": "rum ciemny - 30 ml, rum jasny - 30 ml, likier Triple sec - 15 ml, sok z limonki - 15 ml, syrop orgeat - 15 ml, sok z pomarańczy - 15 ml, kostki lodu",
+"recipe":"Wszystkie składniki wymieszać w shakerze z kostkami lodu. Przecedzić do przygotowanego kieliszka typu Old Fashioned. Posypać cukrem pudrem i podawać z limonką.",
+"image": "https://www.foodandwine.com/thmb/12UDMRbfmdAzBt9XJcCa-R2qqQ4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Mai-Tai-Cocktail-FT-BLOG1122-43e6748207e04826b57b8654cedb6bd8.jpg"
+}
  ]

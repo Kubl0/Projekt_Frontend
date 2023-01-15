@@ -20,7 +20,7 @@ export default function CommentForm({user}) {
 
     });
 
-    return isLogged ? ( 
+    return isLogged.isLogged ? ( 
     <div className="commentForm">
     <form onSubmit={formik.handleSubmit}>
         <label htmlFor="comment">Comment</label>

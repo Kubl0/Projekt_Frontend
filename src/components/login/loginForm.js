@@ -20,7 +20,7 @@ export default function LoginForm({isLogged, setIsLogged, user, setUser}) {
         onSubmit: values => {
             if(users.find(user => user.username === values.username && user.password === values.password) !== undefined){
                 setIsLogged(true);
-                setUser(values.username)}
+                setUser(users.find(user => user.username === values.username && user.password === values.password))}
             else alert("Wrong username or password");
         }
     });
@@ -53,7 +53,7 @@ export default function LoginForm({isLogged, setIsLogged, user, setUser}) {
         );
         else return(
             <div className="login">
-                <h3>Logged as {user}</h3>
+                <h3>Logged as {formik.values.username}</h3>
             </div>
         );
 }
