@@ -11,6 +11,13 @@ export default function LoginForm({isLogged, setIsLogged, user, setUser}) {
         return errors;
     }
 
+    const reset = () => {
+        setUser({});
+        setIsLogged(false);
+        formik.resetForm();
+    }
+
+
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -54,6 +61,7 @@ export default function LoginForm({isLogged, setIsLogged, user, setUser}) {
         else return(
             <div className="login">
                 <h3>Logged as {formik.values.username}</h3>
+                <button type="submit" onClick={reset}>Logout</button>
             </div>
         );
 }

@@ -3,7 +3,7 @@ import data from '../data/drinkData.json';
 export default function drinkReducer(state = data, action) {
     switch(action.type){
         case 'ADD_DRINK':
-            return [...state, action.payload];
+            return [action.payload, ...state];
         case 'DELETE_DRINK':
             return state.filter(drink => drink.id !== action.payload);
         case 'UPDATE_DRINK':
