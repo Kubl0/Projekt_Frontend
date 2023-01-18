@@ -11,22 +11,40 @@ export default function DrinkInfo({ drink }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="drinkInfo">
+    <div
+      className="drinkInfo"
+      class="relative flex flex-col items-center mb-10 bg-stone-300 p-7 rounded-md shadow-md w-[600px] text-lg"
+    >
       <img src={drink.image} alt={drink.name} className="drinkImage" />
-      <h2>{drink.name}</h2>
+      <br />
+      <h2 class="flex flex-col items-center">
+        <b>Nazwa: </b>
+        {drink.name}
+      </h2>
+      <b>Typ: </b>
       <p>{drink.type}</p>
+      <div>
+        <SimpleRating drink={drink} />
+      </div>
+      <button
+        className="detailsButton"
+        class="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+      >
+        <Link class="w-[350px]" to={`/${drink.id}`}>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Szczegóły
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </Link>
+      </button>
+      <br />
       {isLogged.user.type === "admin" ? (
         <button
-          className="deleteButton"
+          class="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
           onClick={() => dispatch({ type: "DELETE_DRINK", payload: drink.id })}
         >
           Usuń
         </button>
       ) : null}
-      <button className="detailsButton">
-        <Link to={`/${drink.id}`}>Szczegóły</Link>
-      </button>
-      <SimpleRating drink={drink} />
     </div>
   );
 }

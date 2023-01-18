@@ -17,7 +17,7 @@ export default function DrinkList() {
         drink.name.toLowerCase().includes(search.toLowerCase())
       )
     );
-    if (filteredDrinks.length === 0) {
+    if (filteredDrinks.length === 0 && search !== "") {
       setSearchErr("Nie znaleziono drinka o podanej nazwie");
     } else {
       setSearchErr("");
@@ -25,13 +25,18 @@ export default function DrinkList() {
   }, [search, drinks, filteredDrinks.length]);
 
   return (
-    <div className="drinkList" key="drinkList">
+    <div
+      className="drinkList"
+      key="drinkList"
+      class="mt-[100px] flex flex-col items-center"
+    >
       {isLogged.user.type === "admin" ? (
         <div className="drinkAdminForm">
           <DrinkForm />
         </div>
       ) : null}
       <input
+        className="searchBar"
         type="text"
         placeholder="Wyszukaj drinka"
         value={search}
@@ -39,10 +44,23 @@ export default function DrinkList() {
           setSearch(e.target.value);
         }}
       />
-      {filteredDrinks.map((drink) => (
-        <DrinkInfo drink={drink} key={drink.id} />
-      ))}
-      {searchErr ? <p>{searchErr}</p> : null}
+      {filteredDrinks.length === 0 && searchErr === "" ? (
+        <p>
+          Brak drinków
+          <br />
+          <br />
+        </p>
+      ) : (
+        filteredDrinks.map((drink) => <DrinkInfo drink={drink} />)
+      )}
+
+      {searchErr ? (
+        <p>
+          {searchErr}
+          <br />
+          <br />
+        </p>
+      ) : null}
     </div>
   );
 }

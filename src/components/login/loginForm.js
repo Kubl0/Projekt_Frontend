@@ -46,7 +46,7 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
     return (
       <div
         className="loginForm"
-        class="min-h-full items-center sm:px-6 lg:px-8 fixed right-5 top-3.5"
+        class="min-h-full items-center sm:px-6 lg:px-8 p-3 pl-5 mt-1 flex"
       >
         <form onSubmit={formik.handleSubmit}>
           <input
@@ -58,7 +58,6 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
             onChange={formik.handleChange}
             value={formik.values.username}
           />
-          {formik.errors.username ? <div>{formik.errors.username}</div> : null}
           <input
             class="px-2 py-0.5 rounded-md mr-2"
             id="password"
@@ -70,7 +69,7 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
           />
           <button
             type="submit"
-            class="bg-gray-900 text-white px-2 py-1.5 rounded-md text-sm font-medium"
+            class="bg-gray-900 text-white px-2 py-2 rounded-md text-sm font-medium "
           >
             Login
           </button>
@@ -81,18 +80,22 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
     return (
       <div
         className="loginForm"
-        class="min-h-full items-center sm:px-6 lg:px-8 fixed right-5 top-3.5"
+        class="min-h-full items-center sm:px-6 lg:px-8 p-3 pl-5 flex flex-nowrap"
       >
-        <h3 class="text-white px-3 py-2 rounded-md fixed top-2.5 right-40">
-          Logged as {formik.values.username}
-        </h3>
-        <button
-          type="submit"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium fixed top-3 right-5"
-          onClick={reset}
-        >
-          Logout
-        </button>
+        <div>
+          <h3 class="text-white px-3 py-2 rounded-md nowrap">
+            Logged as {formik.values.username}
+          </h3>
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            onClick={reset}
+          >
+            Logout
+          </button>
+        </div>
       </div>
     );
 }

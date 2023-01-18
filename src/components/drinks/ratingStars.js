@@ -16,24 +16,30 @@ export default function SimpleRating({ drink }) {
   }, [grades]);
 
   return (
-    <Box sx={{ width: 200, display: "flex", alignItems: "center" }}>
-      <Rating
-        name="simple-controlled"
-        value={newRating}
-        precision={1}
-        onChange={(e) => {
-          setGrades(
-            grades.length > 0
-              ? [...grades, Number(e.target.value)]
-              : [Number(e.target.value)]
-          );
-          console.log(grades);
-        }}
-      />
-      <Typography className="ocena">
-        {" "}
-        Ocena: {Math.round(newRating * 10) / 10}
-      </Typography>
-    </Box>
+    <div className="rating">
+      <Box
+        sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
+      >
+        <Rating
+          className="ratingStars"
+          name="simple-controlled"
+          value={newRating}
+          precision={1}
+          onChange={(e) => {
+            setGrades(
+              grades.length > 0
+                ? [...grades, Number(e.target.value)]
+                : [Number(e.target.value)]
+            );
+          }}
+        />
+        <Typography className="ocena">
+          {" "}
+          <b>Ocena: </b>
+          {Math.round(newRating * 10) / 10}
+        </Typography>
+        <br />
+      </Box>
+    </div>
   );
 }

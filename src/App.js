@@ -16,21 +16,30 @@ function App() {
 
   return (
     <loggedContext.Provider value={{ isLogged: isLogged, user: user }}>
-      <LoginForm
-        isLogged={isLogged}
-        setIsLogged={setIsLogged}
-        user={user}
-        setUser={setUser}
-      />
-      <NavBar />
+      <div className="navigation">
+        <div class="flex bg-gray-600">
+          <div class="order-last"></div>
+          <LoginForm
+            isLogged={isLogged}
+            setIsLogged={setIsLogged}
+            user={user}
+            setUser={setUser}
+          />
+          <div class="order-first grow">
+            <NavBar />
+          </div>
+        </div>
+      </div>
       <Routes>
         <Route path="/" element={<DrinkList />} />
         <Route path=":id" element={<DrinkDetails />} />
         <Route path="statistics" element={<CoctailTable />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
-      <CommentForm user={user.username} />
-      <CommentList />
+      <div class="flex flex-col-reverse">
+        <CommentForm user={user.username} />
+        <CommentList />
+      </div>
     </loggedContext.Provider>
   );
 }

@@ -9,19 +9,19 @@ export default function CoctailTable() {
   const drinks = useSelector((state) => state.drinks);
   const comments = useSelector((state) => state.comments);
   return (
-    <div className="stats">
+    <div className="stats" class="flex flex-col items-center">
       <h3>Statystyki</h3>
 
-      <div className="chart">
+      <div className="chart" class="mt-20 mb-20 w-[600px]">
         <Pie
           data={{
-            labels: ["Alkoholowe", "Niealkoholowe"],
+            labels: ["Alkoholowe", "Bezalkoholowe"],
             datasets: [
               {
                 label: "Liczba drinków",
                 data: [
-                  drinks.filter((drink) => drink.type === "alcoholic").length,
-                  drinks.filter((drink) => drink.type === "non-alcoholic")
+                  drinks.filter((drink) => drink.type === "alkoholowy").length,
+                  drinks.filter((drink) => drink.type === "bezalkoholowy")
                     .length,
                 ],
                 backgroundColor: [
@@ -38,7 +38,7 @@ export default function CoctailTable() {
           options={{ maintainAspectRatio: false }}
         />
       </div>
-      <div className="bar">
+      <div className="bar" class="mb-20 w-[600px]">
         <Bar
           data={{
             labels: [
@@ -84,7 +84,7 @@ export default function CoctailTable() {
           options={{ maintainAspectRatio: false }}
         />
       </div>
-      <div className="bar">
+      <div className="bar" class="mb-20 w-[600px]">
         <Bar
           data={{
             labels: ["Ilość komentarzy", "Ilość drinkow"],
@@ -107,7 +107,7 @@ export default function CoctailTable() {
         />
       </div>
 
-      <Table striped bordered hover>
+      <Table className="tabelaStat">
         <thead>
           <tr>
             <th>#</th>
@@ -125,20 +125,25 @@ export default function CoctailTable() {
             <td>2</td>
             <td>Liczba drinków z alkoholem</td>
             <td>
-              {drinks.filter((drink) => drink.type === "alcoholic").length}
+              {drinks.filter((drink) => drink.type === "alkoholowy").length}
             </td>
           </tr>
           <tr>
             <td>3</td>
             <td>Liczba drinków bez alkoholu</td>
             <td>
-              {drinks.filter((drink) => drink.type === "non-alcoholic").length}
+              {drinks.filter((drink) => drink.type === "bezalkoholowy").length}
             </td>
           </tr>
           <tr>
             <td>4</td>
             <td>Najczesciej oceniany drink</td>
-            <td>0</td>
+            <td>
+              {drinks.reduce(
+                (acc, x) => (x.grades.length > acc ? (acc = x.name) : acc),
+                ""
+              )}
+            </td>
           </tr>
           <tr>
             <td>5</td>
@@ -174,6 +179,7 @@ export default function CoctailTable() {
           </tr>
         </tbody>
       </Table>
+      <br />
     </div>
   );
 }

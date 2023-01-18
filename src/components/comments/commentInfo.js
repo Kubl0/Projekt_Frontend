@@ -8,20 +8,28 @@ export default function CommentInfo({ comment }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="commentInfo">
+    <div
+      className="commentInfo"
+      class="relative mb-10 bg-stone-300 flex flex-col items-center p-2"
+    >
       <p>
-        {comment.user}:{comment.comment}
+        <br />
+        <b>{comment.user}</b>: {comment.comment}
       </p>
+      <br />
       {(isLogged && user.username === comment.user) ||
       (isLogged && user.type === "admin") ? (
-        <div className="commentButtons">
+        <div className="commentButtons" class="float-right">
           <button
+            class="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
             onClick={() =>
               dispatch({ type: "DELETE_COMMENT", payload: comment.id })
             }
           >
             Usuń komentarz
           </button>
+          <br />
+          <br />
           <CommentEditForm comment={comment} />
         </div>
       ) : null}
