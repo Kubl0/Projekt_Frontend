@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import users from "../../data/users.json";
-
+import "../../style.css";
 export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
   const validate = (values) => {
     const errors = {};
@@ -44,35 +44,53 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
 
   if (isLogged === false)
     return (
-      <div className="login">
+      <div
+        className="loginForm"
+        class="min-h-full items-center sm:px-6 lg:px-8 fixed right-5 top-3.5"
+      >
         <form onSubmit={formik.handleSubmit}>
-          <label htmlFor="username">Username</label>
           <input
+            class="px-2 py-0.5 rounded-md mr-2"
             id="username"
             name="username"
+            placeholder="Nazwa użytkownika"
             type="username"
             onChange={formik.handleChange}
             value={formik.values.username}
           />
           {formik.errors.username ? <div>{formik.errors.username}</div> : null}
-          <label htmlFor="password">Password</label>
           <input
+            class="px-2 py-0.5 rounded-md mr-2"
             id="password"
             name="password"
             type="password"
+            placeholder="Hasło"
             onChange={formik.handleChange}
             value={formik.values.password}
           />
-          {formik.errors.password ? <div>{formik.errors.password}</div> : null}
-          <button type="submit">Login</button>
+          <button
+            type="submit"
+            class="bg-gray-900 text-white px-2 py-1.5 rounded-md text-sm font-medium"
+          >
+            Login
+          </button>
         </form>
       </div>
     );
   else
     return (
-      <div className="login">
-        <h3>Logged as {formik.values.username}</h3>
-        <button type="submit" onClick={reset}>
+      <div
+        className="loginForm"
+        class="min-h-full items-center sm:px-6 lg:px-8 fixed right-5 top-3.5"
+      >
+        <h3 class="text-white px-3 py-2 rounded-md fixed top-2.5 right-40">
+          Logged as {formik.values.username}
+        </h3>
+        <button
+          type="submit"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium fixed top-3 right-5"
+          onClick={reset}
+        >
           Logout
         </button>
       </div>

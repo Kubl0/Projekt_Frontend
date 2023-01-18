@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Bar, Pie } from "react-chartjs-2";
+// eslint-disable-next-line
 import Chart from "chart.js/auto";
 
 export default function CoctailTable() {

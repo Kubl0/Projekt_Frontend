@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useContext } from "react";
 import { loggedContext } from "../../App";
+import SimpleRating from "./ratingStars";
 
 export default function DrinkInfo({ drink }) {
   const isLogged = useContext(loggedContext);
@@ -14,7 +15,7 @@ export default function DrinkInfo({ drink }) {
       <img src={drink.image} alt={drink.name} className="drinkImage" />
       <h2>{drink.name}</h2>
       <p>{drink.type}</p>
-      {isLogged.user.type ? (
+      {isLogged.user.type === "admin" ? (
         <button
           className="deleteButton"
           onClick={() => dispatch({ type: "DELETE_DRINK", payload: drink.id })}
@@ -25,6 +26,7 @@ export default function DrinkInfo({ drink }) {
       <button className="detailsButton">
         <Link to={`/${drink.id}`}>Szczegóły</Link>
       </button>
+      <SimpleRating drink={drink} />
     </div>
   );
 }

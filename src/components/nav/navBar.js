@@ -20,13 +20,30 @@ export default function NavBar() {
     .join("");
 
   return (
-    <div className="navBar">
-      <h1>Coctails</h1>
-      <Link to="/">Strona główna</Link>
-      <Link to="statistics">Statystyki</Link>
-      <button type="submit" onClick={() => saveJSON({ data })}>
-        Pobierz wszystkie przepisy
-      </button>
+    <div>
+      <div className="navBar" class="flex space-x-4 p-3 pl-5 bg-gray-600">
+        <Link
+          class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+          to="/"
+        >
+          Strona główna
+        </Link>
+        <Link
+          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+          to="statistics"
+        >
+          Statystyki
+        </Link>
+        <button
+          type="submit"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+          id="user-menu-button"
+          aria-expanded="false"
+          onClick={() => saveJSON({ data })}
+        >
+          Pobierz wszystkie przepisy
+        </button>
+      </div>
     </div>
   );
 }

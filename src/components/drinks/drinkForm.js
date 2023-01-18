@@ -17,6 +17,7 @@ export default function DrinkForm() {
       glass: "",
       ingredients: "",
       recipe: "",
+      grades: [],
     },
     onSubmit: (values) => {
       dispatch({ type: "ADD_DRINK", payload: values });
