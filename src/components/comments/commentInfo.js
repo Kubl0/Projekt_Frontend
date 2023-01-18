@@ -10,7 +10,7 @@ export default function CommentInfo({ comment }) {
   return (
     <div
       className="commentInfo"
-      class="relative mb-10 bg-stone-300 flex flex-col items-center p-2"
+      class="relative mb-10 bg-stone-300 flex flex-col items-center p-2 rounded-md shadow-md"
     >
       <p>
         <br />

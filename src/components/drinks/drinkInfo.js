@@ -11,13 +11,10 @@ export default function DrinkInfo({ drink }) {
   const dispatch = useDispatch();
 
   return (
-    <div
-      className="drinkInfo"
-      class="relative flex flex-col items-center mb-10 bg-stone-300 p-7 rounded-md shadow-md w-[600px] text-lg"
-    >
+    <div className="relative flex flex-col items-center mb-10 bg-stone-300 p-7 rounded-md shadow-md w-[600px] text-lg">
       <img src={drink.image} alt={drink.name} className="drinkImage" />
       <br />
-      <h2 class="flex flex-col items-center">
+      <h2 className="flex flex-col items-center">
         <b>Nazwa: </b>
         {drink.name}
       </h2>
@@ -26,11 +23,8 @@ export default function DrinkInfo({ drink }) {
       <div>
         <SimpleRating drink={drink} />
       </div>
-      <button
-        className="detailsButton"
-        class="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-      >
-        <Link class="w-[350px]" to={`/${drink.id}`}>
+      <button className="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
+        <Link className="w-[350px]" to={`/${drink.id}`}>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           Szczegóły
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -39,7 +33,7 @@ export default function DrinkInfo({ drink }) {
       <br />
       {isLogged.user.type === "admin" ? (
         <button
-          class="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+          className="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
           onClick={() => dispatch({ type: "DELETE_DRINK", payload: drink.id })}
         >
           Usuń

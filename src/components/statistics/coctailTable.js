@@ -9,10 +9,10 @@ export default function CoctailTable() {
   const drinks = useSelector((state) => state.drinks);
   const comments = useSelector((state) => state.comments);
   return (
-    <div className="stats" class="flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <h3>Statystyki</h3>
 
-      <div className="chart" class="mt-20 mb-20 w-[600px]">
+      <div className="mt-20 mb-20 w-[600px]">
         <Pie
           data={{
             labels: ["Alkoholowe", "Bezalkoholowe"],
@@ -38,7 +38,7 @@ export default function CoctailTable() {
           options={{ maintainAspectRatio: false }}
         />
       </div>
-      <div className="bar" class="mb-20 w-[600px]">
+      <div className="mb-20 w-[600px]">
         <Bar
           data={{
             labels: [
@@ -84,7 +84,7 @@ export default function CoctailTable() {
           options={{ maintainAspectRatio: false }}
         />
       </div>
-      <div className="bar" class="mb-20 w-[600px]">
+      <div className="mb-20 w-[600px]">
         <Bar
           data={{
             labels: ["Ilość komentarzy", "Ilość drinkow"],

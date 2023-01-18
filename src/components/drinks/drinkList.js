@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import DrinkInfo from "./drinkInfo";
 import { loggedContext } from "../../App";
 import DrinkForm from "./drinkForm";
+
 export default function DrinkList() {
   const isLogged = useContext(loggedContext);
   const drinks = useSelector((state) => state.drinks);
@@ -25,11 +26,7 @@ export default function DrinkList() {
   }, [search, drinks, filteredDrinks.length]);
 
   return (
-    <div
-      className="drinkList"
-      key="drinkList"
-      class="mt-[100px] flex flex-col items-center"
-    >
+    <div key="drinkList" className="mt-[100px] flex flex-col items-center">
       {isLogged.user.type === "admin" ? (
         <div className="drinkAdminForm">
           <DrinkForm />
@@ -51,7 +48,9 @@ export default function DrinkList() {
           <br />
         </p>
       ) : (
-        filteredDrinks.map((drink) => <DrinkInfo drink={drink} />)
+        filteredDrinks.map((drink) => (
+          <DrinkInfo drink={drink} key={drink.id} />
+        ))
       )}
 
       {searchErr ? (

@@ -17,6 +17,7 @@ export default function DrinkEdit({ drink }) {
       recipe: drink.recipe,
       ingredients: drink.ingredients,
       image: drink.image,
+      grades: drink.grades,
     },
     onSubmit: (values) => {
       dispatch({ type: "UPDATE_DRINK", payload: values });
@@ -24,9 +25,12 @@ export default function DrinkEdit({ drink }) {
   });
 
   return (
-    <div className="drinkEditForm">
+    <div className="flex flex-col mb-10 leading-10">
       {isLogged.user.type === "admin" ? (
-        <form onSubmit={formik.handleSubmit}>
+        <form
+          onSubmit={formik.handleSubmit}
+          className="flex flex-col w-[600px] bg-gray-600 p-5 pl:pr-7 rounded-lg"
+        >
           <label htmlFor="name">Nazwa drinka</label>
           <input
             type="text"
@@ -73,7 +77,13 @@ export default function DrinkEdit({ drink }) {
             onChange={formik.handleChange}
             value={formik.values.image}
           />
-          <button type="submit">Zapisz zmiany</button>
+          <br />
+          <button
+            className="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+            type="submit"
+          >
+            Zapisz zmiany
+          </button>
         </form>
       ) : null}
     </div>

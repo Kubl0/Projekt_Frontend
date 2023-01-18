@@ -17,15 +17,15 @@ function App() {
   return (
     <loggedContext.Provider value={{ isLogged: isLogged, user: user }}>
       <div className="navigation">
-        <div class="flex bg-gray-600">
-          <div class="order-last"></div>
+        <div className="flex bg-gray-600">
+          <div className="order-last"></div>
           <LoginForm
             isLogged={isLogged}
             setIsLogged={setIsLogged}
             user={user}
             setUser={setUser}
           />
-          <div class="order-first grow">
+          <div className="order-first grow">
             <NavBar />
           </div>
         </div>
@@ -36,7 +36,7 @@ function App() {
         <Route path="statistics" element={<CoctailTable />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
-      <div class="flex flex-col-reverse">
+      <div className="flex flex-col-reverse">
         <CommentForm user={user.username} />
         <CommentList />
       </div>

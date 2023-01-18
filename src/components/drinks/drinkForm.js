@@ -34,13 +34,13 @@ export default function DrinkForm() {
   });
 
   return (
-    <div className="drinkForm" class="flex flex-col mb-10 leading-10">
+    <div className="flex flex-col mb-10 leading-10">
       <form
         onSubmit={formik.handleSubmit}
-        class="flex flex-col w-[300px] bg-gray-600 p-5 pl:pr-7 rounded-lg"
+        className="flex flex-col w-[300px] bg-gray-600 p-5 pl:pr-7 rounded-lg"
       >
         <input
-          class="rounded-md mb-1"
+          className="rounded-md mb-1"
           value={formik.values.name}
           name="name"
           id="name"
@@ -48,7 +48,7 @@ export default function DrinkForm() {
           onChange={formik.handleChange}
         />
         <input
-          class="rounded-md mb-1"
+          className="rounded-md mb-1"
           value={formik.values.type}
           name="type"
           id="type"
@@ -56,7 +56,7 @@ export default function DrinkForm() {
           onChange={formik.handleChange}
         />
         <input
-          class="rounded-md  mb-1"
+          className="rounded-md  mb-1"
           value={formik.values.image}
           name="image"
           id="image"
@@ -64,7 +64,7 @@ export default function DrinkForm() {
           onChange={formik.handleChange}
         />
         <input
-          class="rounded-md mb-1"
+          className="rounded-md mb-1"
           value={formik.values.glass}
           name="glass"
           id="glass"
@@ -72,7 +72,7 @@ export default function DrinkForm() {
           onChange={formik.handleChange}
         />
         <input
-          class="rounded-md mb-1"
+          className="rounded-md mb-1"
           value={formik.values.ingredients}
           name="ingredients"
           id="ingredients"
@@ -80,7 +80,7 @@ export default function DrinkForm() {
           onChange={formik.handleChange}
         />
         <input
-          class="rounded-md mb-1"
+          className="rounded-md mb-1"
           value={formik.values.recipe}
           name="recipe"
           id="recipe"
@@ -88,7 +88,7 @@ export default function DrinkForm() {
           onChange={formik.handleChange}
         />
         <button
-          class="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+          className="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
           type="submit"
         >
           Dodaj drink

@@ -21,22 +21,22 @@ export default function NavBar() {
 
   return (
     <div>
-      <div className="navBar" class="flex space-x-4 p-3 pl-5 bg-gray-600">
+      <div className="flex space-x-4 p-3 pl-5 bg-gray-600">
         <Link
-          class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+          className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
           to="/"
         >
           Strona główna
         </Link>
         <Link
-          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+          className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           to="statistics"
         >
           Statystyki
         </Link>
         <button
           type="submit"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+          className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           id="user-menu-button"
           aria-expanded="false"
           onClick={() => saveJSON({ data })}

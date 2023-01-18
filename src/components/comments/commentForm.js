@@ -30,12 +30,12 @@ export default function CommentForm({ user }) {
   });
 
   return isLogged.isLogged ? (
-    <div className="commentForm" class="text-center mt-10 bg-stone-200 p-10">
-      <div class="text-center">
-        <h2 class="text-2xl font-bold mb-4">Dodaj komentarz</h2>
+    <div className="text-center mt-10 bg-stone-200 p-10">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold mb-4">Dodaj komentarz</h2>
         <form onSubmit={formik.handleSubmit}>
           <input
-            class="px-2 py-1 rounded-md mr-2"
+            className="px-2 py-1 rounded-md mr-2"
             value={formik.values.comment}
             name="comment"
             id="comment"
@@ -44,7 +44,7 @@ export default function CommentForm({ user }) {
           />
           <button
             type="submit"
-            class="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+            className="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
           >
             Dodaj komentarz
           </button>
@@ -52,7 +52,7 @@ export default function CommentForm({ user }) {
       </div>
     </div>
   ) : (
-    <div className="commentForm" class="text-center mt-10 bg-stone-200 p-10">
+    <div className="text-center mt-10 bg-stone-200 p-10">
       <p>
         <b>Musisz być zalogowany aby dodać komentarz</b>
       </p>

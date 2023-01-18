@@ -6,8 +6,8 @@ export default function CommentList() {
   const comments = useSelector((state) => state.comments);
 
   return (
-    <div className="commentList" class="flex flex-col items-center">
-      <div class="w-[600px] text-center p-10 bg-stone-200 rounded-md">
+    <div className="flex flex-col items-center">
+      <div className="w-[600px] text-center p-10 bg-stone-200 rounded-md">
         <b>Komentarze: </b>
         <br />
         <br />

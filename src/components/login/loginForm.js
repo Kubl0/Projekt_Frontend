@@ -44,13 +44,10 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
 
   if (isLogged === false)
     return (
-      <div
-        className="loginForm"
-        class="min-h-full items-center sm:px-6 lg:px-8 p-3 pl-5 mt-1 flex"
-      >
+      <div className="min-h-full items-center sm:px-6 lg:px-8 p-3 pl-5 mt-1 flex">
         <form onSubmit={formik.handleSubmit}>
           <input
-            class="px-2 py-0.5 rounded-md mr-2"
+            className="px-2 py-0.5 rounded-md mr-2"
             id="username"
             name="username"
             placeholder="Nazwa użytkownika"
@@ -59,7 +56,7 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
             value={formik.values.username}
           />
           <input
-            class="px-2 py-0.5 rounded-md mr-2"
+            className="px-2 py-0.5 rounded-md mr-2"
             id="password"
             name="password"
             type="password"
@@ -69,7 +66,7 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
           />
           <button
             type="submit"
-            class="bg-gray-900 text-white px-2 py-2 rounded-md text-sm font-medium "
+            className="bg-gray-900 text-white px-2 py-2 rounded-md text-sm font-medium "
           >
             Login
           </button>
@@ -78,19 +75,16 @@ export default function LoginForm({ isLogged, setIsLogged, user, setUser }) {
     );
   else
     return (
-      <div
-        className="loginForm"
-        class="min-h-full items-center sm:px-6 lg:px-8 p-3 pl-5 flex flex-nowrap"
-      >
+      <div className="min-h-full items-center sm:px-6 lg:px-8 p-3 pl-5 flex flex-nowrap">
         <div>
-          <h3 class="text-white px-3 py-2 rounded-md nowrap">
+          <h3 className="text-white px-3 py-2 rounded-md nowrap">
             Logged as {formik.values.username}
           </h3>
         </div>
         <div>
           <button
             type="submit"
-            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             onClick={reset}
           >
             Logout
