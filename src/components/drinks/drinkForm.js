@@ -28,8 +28,13 @@ export default function DrinkForm() {
       grades: [],
     },
     onSubmit: (values) => {
+      if(values.name !== "" || values.type !== "" || values.image !== "" || values.glass !== "" || values.ingredients !== "" || values.recipe !== "")
+      {
       dispatch({ type: "ADD_DRINK", payload: values });
       formik.resetForm();
+    }else{
+      alert("Wypełnij wszystkie pola!")
+    }
     },
   });
 
