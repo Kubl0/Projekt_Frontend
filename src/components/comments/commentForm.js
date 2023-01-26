@@ -1,18 +1,31 @@
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { loggedContext } from "../../App";
+import { addCommentAction } from "../../actions/commentAction";
+import { useLocation } from "react-router-dom";
 
-export default function CommentForm({ user }) {
+export default function CommentForm() {
   const [id, setId] = useState(0);
 
   const isLogged = useContext(loggedContext);
 
   const dispatch = useDispatch();
 
+  const drinkId = useRef();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      drinkId.current = location.pathname.split("/")[1];
+    } else {
+      drinkId.current = "global";
+    }
+    console.log(drinkId.current);
+  }, [location]);
+
   const formik = useFormik({
     initialValues: {
-      id: id,
       comment: "",
     },
     onSubmit: (values) => {
@@ -20,10 +33,14 @@ export default function CommentForm({ user }) {
         alert("Kommentarz nie może być pusty");
         return;
       }
-      dispatch({
-        type: "ADD_COMMENT",
-        payload: { comment: values.comment, user: user, id: id },
-      });
+      dispatch(
+        addCommentAction({
+          id: id,
+          comment: formik.values.comment,
+          user: isLogged.user.username,
+          drinkId: drinkId.current,
+        })
+      );
       setId(id + 1);
       formik.resetForm();
     },

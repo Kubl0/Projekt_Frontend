@@ -9,7 +9,9 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/nav/navBar";
 import Err404 from "./components/nav/err404";
 import CoctailTable from "./components/statistics/coctailTable";
+
 export const loggedContext = createContext();
+
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState({});

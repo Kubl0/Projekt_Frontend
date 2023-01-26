@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import CommentInfo from "./commentInfo";
+import { useLocation } from "react-router-dom";
 
 export default function CommentList() {
   const comments = useSelector((state) => state.comments);
+  const [filteredComments, setFilteredComments] = React.useState(comments);
+  const location = useLocation();
+
+  useEffect(() => {
+    let drinkId = location.pathname.split("/")[1];
+    if (drinkId === "" || drinkId === "statistics") {
+      drinkId = "global";
+    }
+    setFilteredComments(
+      comments.filter((comment) => comment.drinkId === drinkId)
+    );
+  }, [location, comments]);
 
   return (
     <div className="flex flex-col items-center">
@@ -11,10 +24,12 @@ export default function CommentList() {
         <b>Komentarze: </b>
         <br />
         <br />
-        {comments.length === 0 ? (
+        {filteredComments.length === 0 ? (
           <p>Brak komentarzy</p>
         ) : (
-          comments.map((comment) => <CommentInfo comment={comment} />)
+          filteredComments.map((comment) => (
+            <CommentInfo comment={comment} key={comment.id} />
+          ))
         )}{" "}
       </div>
     </div>

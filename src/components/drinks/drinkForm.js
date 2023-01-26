@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import React from "react";
 import { useSelector } from "react-redux";
+import { addDrinkAction } from "../../actions/drinkAction";
 
 export default function DrinkForm() {
   const drinks = useSelector((state) => state.drinks);
@@ -22,19 +23,25 @@ export default function DrinkForm() {
       name: "",
       type: "",
       image: "",
-      glass: "",
+      type_of_glass: "",
       ingredients: "",
       recipe: "",
       grades: [],
     },
     onSubmit: (values) => {
-      if(values.name !== "" || values.type !== "" || values.image !== "" || values.glass !== "" || values.ingredients !== "" || values.recipe !== "")
-      {
-      dispatch({ type: "ADD_DRINK", payload: values });
-      formik.resetForm();
-    }else{
-      alert("Wypełnij wszystkie pola!")
-    }
+      if (
+        values.name !== "" ||
+        values.type !== "" ||
+        values.image !== "" ||
+        values.type_of_glass !== "" ||
+        values.ingredients !== "" ||
+        values.recipe !== ""
+      ) {
+        dispatch(addDrinkAction(values));
+        formik.resetForm();
+      } else {
+        alert("Wypełnij wszystkie pola!");
+      }
     },
   });
 
@@ -61,19 +68,19 @@ export default function DrinkForm() {
           onChange={formik.handleChange}
         />
         <input
+          className="rounded-md mb-1"
+          value={formik.values.type_of_glass}
+          name="type_of_glass"
+          id="type_of_glass"
+          placeholder="Rodzaj szklanki"
+          onChange={formik.handleChange}
+        />
+        <input
           className="rounded-md  mb-1"
           value={formik.values.image}
           name="image"
           id="image"
           placeholder="Zdjęcie drinka"
-          onChange={formik.handleChange}
-        />
-        <input
-          className="rounded-md mb-1"
-          value={formik.values.glass}
-          name="glass"
-          id="glass"
-          placeholder="Szklanka do drinka"
           onChange={formik.handleChange}
         />
         <input

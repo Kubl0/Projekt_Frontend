@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useContext } from "react";
 import { loggedContext } from "../../App";
 import SimpleRating from "./ratingStars";
+import { deleteDrinkAction } from "../../actions/drinkAction";
 
 export default function DrinkInfo({ drink }) {
   const isLogged = useContext(loggedContext);
@@ -34,7 +35,9 @@ export default function DrinkInfo({ drink }) {
       {isLogged.user.type === "admin" ? (
         <button
           className="text-lg bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-          onClick={() => dispatch({ type: "DELETE_DRINK", payload: drink.id })}
+          onClick={() => {
+            dispatch(deleteDrinkAction(drink.id));
+          }}
         >
           Usuń
         </button>

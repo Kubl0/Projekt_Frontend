@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { loggedContext } from "../../App";
 import { useFormik } from "formik";
 import { useContext } from "react";
+import { updateDrinkAction } from "../../actions/drinkAction";
 
 export default function DrinkEdit({ drink }) {
   const isLogged = useContext(loggedContext);
@@ -20,7 +21,7 @@ export default function DrinkEdit({ drink }) {
       grades: drink.grades,
     },
     onSubmit: (values) => {
-      dispatch({ type: "UPDATE_DRINK", payload: values });
+      dispatch(updateDrinkAction(values));
     },
   });
 

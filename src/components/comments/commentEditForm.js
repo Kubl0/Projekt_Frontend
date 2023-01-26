@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
+import { updateCommentAction } from "../../actions/commentAction";
 
 export default function CommentEditForm({ comment }) {
   const dispatch = useDispatch();
@@ -9,13 +10,14 @@ export default function CommentEditForm({ comment }) {
       id: comment.id,
       user: comment.user,
       comment: comment.comment,
+      drinkId: comment.drinkId,
     },
     onSubmit: (values) => {
       if (values.comment === "") {
         alert("Komentarz nie może być pusty");
         return;
       }
-      dispatch({ type: "UPDATE_COMMENT", payload: values });
+      dispatch(updateCommentAction(values));
     },
   });
 
@@ -24,7 +26,7 @@ export default function CommentEditForm({ comment }) {
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="comment">Edytuj komentarz: </label>
         <input
-          class="px-2 py-0.5 rounded-md mr-2"
+          className="px-2 py-0.5 rounded-md mr-2"
           type="text"
           id="comment"
           comment="comment"
@@ -34,7 +36,7 @@ export default function CommentEditForm({ comment }) {
         />
         <button
           type="submit"
-          class="text-lg bg-gray-900 text-white px-3 py-1.5 rounded-md text-sm font-medium"
+          className="text-lg bg-gray-900 text-white px-3 py-1.5 rounded-md text-sm font-medium"
         >
           Zapisz
         </button>
